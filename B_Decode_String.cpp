@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+using namespace std;
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
+#define int long long
+#define float long double
+#define endl "\n"
+#define watch(x) clog << "[" << __LINE__ << "] " << (#x) << " = " << (x) << endl
+
+int binpow(int a, int b, int m)
+{
+    int ans = 1;
+    while (b > 0)
+    {
+        if (b & 1)
+        {
+            ans *= a;
+            ans %= m;
+        }
+        a *= a;
+        a %= m;
+        b /= 2;
+    }
+    return (ans + m) % m;
+}
+
+signed main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int T = 1;
+    cin >> T;
+    while (T--)
+    {
+        int n;
+        cin >> n;
+        string s, ans = "";
+        cin >> s;
+        for (int i = 0; i < n;)
+        {
+            if (i < n - 3 && (s[i + 2] == s[i + 3] && s[i + 2] == '0'))
+            {
+
+                ans += ('a' + s[i] - '0' - 1);
+                int t = 0;
+                t += ((int)(s[i + 1] - '0')) * 10;
+                t += ((int)(s[i + 2]) - '0');
+                ans += ('a' + t - 1);
+                i += 4;
+            }
+            else if (i < n - 2 && s[i + 2] == '0')
+            {
+
+                int t = 0;
+                t += ((int)(s[i] - '0')) * 10;
+                t += ((int)(s[i + 1]) - '0');
+                ans += ('a' + t - 1);
+                i += 3;
+            }
+            else
+            {
+                ans += ('a' + s[i] - '0' - 1);
+                i++;
+            }
+        }
+        cout << ans << "\n";
+    }
+    return 0;
+}

@@ -1,0 +1,1 @@
+{"name":"Local: sharantest","url":"c:\\Users\\Udit Kansal\\Desktop\\vscode\\sharantest.cpp","tests":[{"id":1663078473941,"input":"hello.txt","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Udit Kansal\\Desktop\\vscode\\sharantest.cpp","group":"local","local":true}

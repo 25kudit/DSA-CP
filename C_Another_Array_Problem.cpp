@@ -1,0 +1,51 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC target("avx,avx2,fma")
+#pragma GCC optimization ("unroll-loops")
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+using namespace std;
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
+#define int long long
+#define float long double
+#define endl "\n"
+#define watch(x) clog << "[" << __LINE__ << "] " << (#x) << " = " << (x) << endl
+
+
+
+signed main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int T = 1;
+    cin >> T;
+    while (T--)
+    {
+        int n;
+        cin>>n;
+        vector<int> a(n);
+        int mx=INT_MIN;
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            mx=max(mx,a[i]);
+        }
+        if(n>=4){
+            cout<<n*mx<<"\n";
+            continue;
+        }
+        if(n==2){
+            cout<<max(a[0]+a[1],2*abs(a[0]-a[1]))<<"\n";
+            continue;
+        }
+        //max at ends
+        int cs1=max(3*a[0],3*a[2]);
+        //max in middle
+        int cs2 = 3* max(abs(a[1]-a[0]),abs(a[2]-a[1]));
+        //sum of all
+        int cs3 = a[0]+a[1]+a[2];
+        cout<<max({cs1,cs2,cs3})<<"\n";
+    }
+    return 0;
+}
