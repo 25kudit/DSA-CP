@@ -53,7 +53,7 @@ ll binpow(ll a, ll b){
 // }
 
 
-void solve(){
+void solve3(){
 	ll n;
 	cin>>n;
 	vll v(n);
@@ -111,15 +111,87 @@ void solve(){
     
     cout<<min({ans1,ans2,ans3})<<'\n';
 }
+void solve2(string a,string b,string c){
+    int nc=c.size(),res=-1;
+    for(int i=nc-1;i>=0;i--){
+        if(c[i]!=a[i] && c[i]!=b[i]){
+            res=i;
+            break;
+        }
+    }
+    string temp = "[ABCDEFGHIJKLMNOPQRSTUVWXYZ]",ans="";
+    for(int i=0;i<res;i++)ans+=temp;
+    ans+='[';
+    for(char ch='A';ch<='Z';ch++){
+        if(ch==c[res])continue;
+        ans+=ch;
+    }
+    ans+=']';
+    for(int i=res+1;i<nc;i++)ans+=temp;
+    cout<<ans;
 
+
+}
+
+int solve1(){
+    vector<int> people = {1,2,2,3,4};
+    vector<char> status={'+','+','-','+','+'};
+    int people_count=people.size();
+    map<int,int> mp;
+    int flag=0;
+    for(int i=0;i<people_count;i++){
+        if(status[i]=='+'){
+            if(mp[people[i]]==1){
+                flag=1;
+                break;
+            }
+            else mp[people[i]]=1;
+        }
+        else{
+            if(mp[people[i]]==0){
+                flag=1;
+                break;
+            }
+            else mp[people[i]]=0;
+        }
+    }
+    if(flag==1)return -1;
+    int curr=0,mx=0;
+    for(int i=0;i<people_count;i++){
+        if(status[i]=='+')curr++;
+        else curr--;
+        mx=max(mx,curr);
+    }
+    return mx;
+}
+
+void solve(){
+    string serverType="00?10??1?1";
+    int n = serverType.size(),it=0,cnt=0;
+    while(it<n && serverType[it]=='?')it++;
+    char curr = serverType[it];
+    it++;
+    while(it<n){
+        if(serverType[it]=='?'||serverType[it]==curr){
+            it++;
+            continue;
+        }
+        cnt++;
+        curr=serverType[it];
+        it++;
+    }
+    cout<<cnt;
+
+}
 
 
 int main() {
     fast
     ll t=1;
-    cin>>t;
+    // cin>>t;
     while(t--){
-       solve();
+        solve();
+    //    solve("AERB","ATRC","AGCB");
     }
    
     
