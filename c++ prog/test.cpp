@@ -13,9 +13,11 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define endl "\n"
 #define watch(x) clog << "[" << __LINE__ << "] " << (#x) << " = " << (x) << endl
 
+
+
 void calc(int n)
 {
-        
+
         vector<bool> is_prime(n + 1, true);
         is_prime[0] = is_prime[1] = false;
         for (int i = 2; i <= n; i++)
@@ -26,12 +28,13 @@ void calc(int n)
                                 is_prime[j] = false;
                 }
         }
-        int cnt=0;
-        for(int i=2;i<n;i++){
-                if(is_prime[i]==true)
+        int cnt = 0;
+        for (int i = 2; i < n; i++)
+        {
+                if (is_prime[i] == true)
                         cnt++;
         }
-        cout<<cnt;
+        cout << cnt;
 }
 signed main()
 {
