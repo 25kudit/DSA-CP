@@ -15,26 +15,22 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-void calc(int n)
+void calc( )
 {
-
-        vector<bool> is_prime(n + 1, true);
-        is_prime[0] = is_prime[1] = false;
-        for (int i = 2; i <= n; i++)
-        {
-                if (is_prime[i] && (long long)i * i <= n)
-                {
-                        for (int j = i * i; j <= n; j += i)
-                                is_prime[j] = false;
-                }
-        }
-        int cnt = 0;
-        for (int i = 2; i < n; i++)
-        {
-                if (is_prime[i] == true)
+        int n=6,k=10;
+        vector<int> v={7,1,9,3,3,7};
+        int cnt=0;
+        unordered_map<int,int> mp;
+        for(int i=0;i<n;i++){
+                int req = k-v[i];
+                if(mp[req]>0){
                         cnt++;
+                        mp[req]--;
+                }
+                else mp[v[i]]++;
         }
-        cout << cnt;
+        cout<<cnt;
+
 }
 signed main()
 {
@@ -42,11 +38,9 @@ signed main()
         cin.tie(0);
         int T = 1;
         // cin >> T;
-        while (T--)
+        // while (T--)
         {
-                int a = 6;
-                int dig = log2(a) + 1;
-                calc(200008);
+                calc();
 
                 // PRIMS ALGO
                 //  vector<vector<pair<int,int>>> adj;//first->vertex no.   second->weight
