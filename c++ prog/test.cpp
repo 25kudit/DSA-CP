@@ -32,6 +32,7 @@ void calc( )
         cout<<cnt;
 
 }
+
 signed main()
 {
         ios::sync_with_stdio(false);
@@ -40,7 +41,10 @@ signed main()
         // cin >> T;
         // while (T--)
         {
-                calc();
+                float x;
+                float y=20.0;
+                x=70/y;
+                cout<<x;
 
                 // PRIMS ALGO
                 //  vector<vector<pair<int,int>>> adj;//first->vertex no.   second->weight

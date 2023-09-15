@@ -33,6 +33,9 @@ struct segtree{
         if(l<=lx && r>=rx)return sums[x];
         int m = (lx+rx)/2;
         return calc(l,r, 2*x+1,lx,m) + calc(l,r,2*x+2,m,rx);
+        for(;;){
+            cout<<l;
+        }
     }
     void build(vector<int> &a,int x,int lx,int rx){
         if(rx-lx==1){
