@@ -33,6 +33,15 @@ void calc( )
 
 }
 
+int fun (int p,int q,int r){
+        for(int r=2;r<=5;r++){
+                p=q+r;
+                p=q+r+q;
+                q=13+r;
+        }
+        return p+q;
+}
+
 signed main()
 {
         ios::sync_with_stdio(false);
@@ -41,10 +50,28 @@ signed main()
         // cin >> T;
         // while (T--)
         {
-                float x;
-                float y=20.0;
-                x=70/y;
-                cout<<x;
+                cout<<fun(8,2,4);
+                return 0;
+                int p,q,r;
+                p=4;q=2;r=9;
+                q=2+p;
+                for(int r=5;r<7;r++){
+                        if((1+p+q)<(q+p+1))q=(q+r)+p;
+                        else{
+                                p=p+r;
+                                if((p+r+q)>(q+r)){
+                                        p=2*q;
+                                        p=(p+6)+r;
+
+                                }
+                                else{
+                                        q=(r+r)+r;
+                                        continue;
+                                }
+                        }
+                }
+                q=8+r;
+                cout<<p+q+r;
 
                 // PRIMS ALGO
                 //  vector<vector<pair<int,int>>> adj;//first->vertex no.   second->weight
